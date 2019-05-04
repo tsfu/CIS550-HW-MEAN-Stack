@@ -1,0 +1,22 @@
+.top-container{
+	margin-top: 25px;
+}
+
+.inputBar{
+	margin: 1.5rem;
+	margin-left:auto;
+	margin-right: auto;
+	width:60%;
+}
+
+.table-header{
+	font-size:1.6rem;
+	font-weight:bold;
+	padding:10px 20px 15px 0;
+}
+
+.table-col{
+	font-size: 1.1rem;
+	padding:20px 50px 0px 0px;
+}
+

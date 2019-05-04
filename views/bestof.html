@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-app="angularjsNodejsTutorial">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CIS550 HW2: Best Of</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="javascripts/app.js" type="text/javascript"></script>
+    <!-- Custom styles for this template-->
+    <link href="/stylesheets/common.css" rel="stylesheet">
+    <!-- Include your custom css file here if you're making one -->
+    <link href="/stylesheets/bestof.css" rel="stylesheet">
+  </head>
+
+  <body ng-controller="BOController">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <span class="navbar-brand center">CIS550 HW2</span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
+          <a class="nav-item nav-link" href="/Recommendations">Recommendations</a>
+          <a class="nav-item nav-link active" href="/bestof">Best Of</a>
+          <a class="nav-item nav-link" href="/posters">Posters</a>
+          <a class="nav-item nav-link" href="/reference">Reference</a>
+        </div>
+      </div>
+    </nav>
+    
+    <!--Insert here-->
+    <div class="container top-container">
+      <div class="jumbotron">
+        <h2 style="text-align: center;"> Best of The Year!</h2>
+        
+        <!-- Dropdown box ADD NG-MODEL HERE--> 
+        <div class="input-group select-bar">
+          <select class="custom-select year-menu" ng-model="yearSelected">
+            <option ng-repeat="x in years">{{x.release_year}}</option>
+          </select>
+          <div class="input-group-append">
+            <button type="button" class="input-group-text btn btn-secondary year-btn" ng-click="showBests()">Submit</button>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- Best List -->
+        <table align="center" ng-show="showBestOf" ng-init="showBestOf=false;">
+          <tr>
+            <td class="show-chosen-year" colspan="3">Best Of Year: {{ yearSelected }}</td>
+          </tr>
+          <tr class="list-hearder">
+            <td class="list-hearder"> Genre </td>
+            <td class="list-hearder"> Title </td>
+            <td class="list-hearder"> Votes </td>
+          </tr>
+          <tr class="list-row" ng-repeat="x in bests">
+            <td class="list-row">{{ x.genre }}</td>
+            <td class="list-row">{{ x.title }}</td>
+            <td class="list-row">{{ x.votes }}</td>
+          </tr>
+        </table> 
+      
+      </div>
+    </div>
+
+    <a class="nav-item nav-link" href="/dashboard">
+      <button type="button" class="btn btn-primary btn-lg btn-block returnBtn">Return to Dashboard</button>
+    </a>
+
+    <!-- Include these before the end of body tag in every HTML file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+
+</html>
